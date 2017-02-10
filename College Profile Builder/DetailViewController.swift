@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
         if let college = self.detailItem {
             if nameTextField != nil{
             nameTextField.text = college.name
-            nameTextField.text = college.location
+            locationTextField.text = college.location
             enrollmentTextField.text = String(college.enrollment)
             imageView.image = UIImage(data: college.image)
               
