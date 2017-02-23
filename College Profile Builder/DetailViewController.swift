@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 import SafariServices
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var enrollmentTextField: UITextField!
@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     let realm = try! Realm()
-    
+    let imagePicker = UIImagePickerController()
     var detailItem: Colleges? {
         didSet {
             // Update the view.
@@ -30,6 +30,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        imagePicker.delegate = self
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true) { () -> Void in
+            let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            self.imageView.image = selectedImage
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +77,17 @@ class DetailViewController: UIViewController {
 
             })
         }
+    }
+    @IBAction func onCameraTappedButton(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            present(imagePicker, animated: true, completion: nil)
+        }
+
+    }
+    @IBAction func onLibraryTappedButton(_ sender: UIButton) {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
