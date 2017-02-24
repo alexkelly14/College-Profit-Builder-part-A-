@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SafariServices
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var enrollmentTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.configureView()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,23 +39,23 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.imageView.image = selectedImage
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     func configureView() {
         // Update the user interface for the detail item.
         if let college = self.detailItem {
             if nameTextField != nil{
-            nameTextField.text = college.name
-            locationTextField.text = college.location
-            enrollmentTextField.text = String(college.enrollment)
-            websiteTextField.text = college.website
-            imageView.image = UIImage(data: college.image)
-              
+                nameTextField.text = college.name
+                locationTextField.text = college.location
+                enrollmentTextField.text = String(college.enrollment)
+                websiteTextField.text = college.website
+                imageView.image = UIImage(data: college.image)
+                
             }
         }
     }
@@ -68,13 +68,13 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func onTappedSaveButton(_ sender: UIButton) {
         if let college = self.detailItem{
-        try! realm.write({
-                    college.name = nameTextField.text!
-                    college.location = locationTextField.text!
-                    college.enrollment = Int(enrollmentTextField.text!)!
-                    college.website = websiteTextField.text!
-                    college.image = UIImagePNGRepresentation(imageView.image!)!
-
+            try! realm.write({
+                college.name = nameTextField.text!
+                college.location = locationTextField.text!
+                college.enrollment = Int(enrollmentTextField.text!)!
+                college.website = websiteTextField.text!
+                college.image = UIImagePNGRepresentation(imageView.image!)!
+                
             })
         }
     }
@@ -83,7 +83,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             present(imagePicker, animated: true, completion: nil)
         }
-
+        
     }
     @IBAction func onLibraryTappedButton(_ sender: UIButton) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary

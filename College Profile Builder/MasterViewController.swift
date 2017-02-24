@@ -9,19 +9,19 @@
 import UIKit
 import RealmSwift
 class MasterViewController: UITableViewController {
-
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     let realm = try! Realm()
     lazy var college: Results<Colleges> = {
         self.realm.objects(Colleges.self)
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
@@ -32,18 +32,18 @@ class MasterViewController: UITableViewController {
             objects.append(college)
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func insertNewObject(_ sender: Any) {
         let alert = UIAlertController(title: "Add College", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -71,23 +71,23 @@ class MasterViewController: UITableViewController {
                 print("missing \(nameTextField.text!) image")
                 return
             }
-                if let enrollment = Int(enrollmentTextField.text!) {
-                    let college = Colleges(name: nameTextField.text!, location: locationTextField.text!, enrollment: enrollment, image: UIImagePNGRepresentation(image)!, website: websiteTextField.text!)
-                    self.objects.append(college)
-                    try! self.realm.write {
-                        self.realm.add(college)
-                    }
-                    self.tableView.reloadData()
+            if let enrollment = Int(enrollmentTextField.text!) {
+                let college = Colleges(name: nameTextField.text!, location: locationTextField.text!, enrollment: enrollment, image: UIImagePNGRepresentation(image)!, website: websiteTextField.text!)
+                self.objects.append(college)
+                try! self.realm.write {
+                    self.realm.add(college)
                 }
+                self.tableView.reloadData()
+            }
         }
         alert.addAction(insertAction)
         present(alert, animated: true, completion: nil)
     }
     
     
-
+    
     // MARK: - Segues
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -99,33 +99,33 @@ class MasterViewController: UITableViewController {
             }
         }
     }
-
+    
     // MARK: - Table View
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        
         let object = objects[indexPath.row] as! Colleges
         cell.textLabel!.text = object.name
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-           let college = objects.remove(at: indexPath.row) as! Colleges
+            let college = objects.remove(at: indexPath.row) as! Colleges
             try! self.realm.write{
                 self.realm.delete(college)
             }
@@ -134,6 +134,6 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
+    
 }
 
