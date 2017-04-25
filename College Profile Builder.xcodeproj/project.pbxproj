@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC3938721E7070FE00B23C01 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3938711E7070FE00B23C01 /* MapKitViewController.swift */; };
 		FC64F4551E4B846E007F0B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC64F4541E4B846E007F0B15 /* AppDelegate.swift */; };
 		FC64F4571E4B846E007F0B15 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC64F4561E4B846E007F0B15 /* MasterViewController.swift */; };
 		FC64F4591E4B846E007F0B15 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC64F4581E4B846E007F0B15 /* DetailViewController.swift */; };
@@ -14,10 +15,10 @@
 		FC64F45E1E4B846E007F0B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC64F45D1E4B846E007F0B15 /* Assets.xcassets */; };
 		FC64F4611E4B846E007F0B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC64F45F1E4B846E007F0B15 /* LaunchScreen.storyboard */; };
 		FC64F4691E4B85CD007F0B15 /* Colleges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC64F4681E4B85CD007F0B15 /* Colleges.swift */; };
-		FC64F46B1E4CDFE4007F0B15 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC64F46A1E4CDFE4007F0B15 /* Realm.framework */; };
-		FC64F46C1E4CDFE4007F0B15 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC64F46A1E4CDFE4007F0B15 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FC64F46F1E4CDFEA007F0B15 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC64F46E1E4CDFEA007F0B15 /* RealmSwift.framework */; };
-		FC64F4701E4CDFEA007F0B15 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC64F46E1E4CDFEA007F0B15 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC8BF4101EA67266004EE118 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8BF40F1EA67266004EE118 /* RealmSwift.framework */; };
+		FC8BF4111EA67266004EE118 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC8BF40F1EA67266004EE118 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC8BF4131EA67270004EE118 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8BF4121EA67270004EE118 /* Realm.framework */; };
+		FC8BF4141EA67270004EE118 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC8BF4121EA67270004EE118 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +28,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC64F4701E4CDFEA007F0B15 /* RealmSwift.framework in Embed Frameworks */,
-				FC64F46C1E4CDFE4007F0B15 /* Realm.framework in Embed Frameworks */,
+				FC8BF4141EA67270004EE118 /* Realm.framework in Embed Frameworks */,
+				FC8BF4111EA67266004EE118 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC3938711E7070FE00B23C01 /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitViewController.swift; path = ../MapKitViewController.swift; sourceTree = "<group>"; };
 		FC64F4511E4B846E007F0B15 /* College Profile Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "College Profile Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC64F4541E4B846E007F0B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC64F4561E4B846E007F0B15 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -45,8 +47,8 @@
 		FC64F4601E4B846E007F0B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC64F4621E4B846E007F0B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC64F4681E4B85CD007F0B15 /* Colleges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colleges.swift; sourceTree = "<group>"; };
-		FC64F46A1E4CDFE4007F0B15 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		FC64F46E1E4CDFEA007F0B15 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		FC8BF40F1EA67266004EE118 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		FC8BF4121EA67270004EE118 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC64F46F1E4CDFEA007F0B15 /* RealmSwift.framework in Frameworks */,
-				FC64F46B1E4CDFE4007F0B15 /* Realm.framework in Frameworks */,
+				FC8BF4131EA67270004EE118 /* Realm.framework in Frameworks */,
+				FC8BF4101EA67266004EE118 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +67,8 @@
 		FC64F4481E4B846E007F0B15 = {
 			isa = PBXGroup;
 			children = (
-				FC64F46E1E4CDFEA007F0B15 /* RealmSwift.framework */,
-				FC64F46A1E4CDFE4007F0B15 /* Realm.framework */,
+				FC8BF4121EA67270004EE118 /* Realm.framework */,
+				FC8BF40F1EA67266004EE118 /* RealmSwift.framework */,
 				FC64F4531E4B846E007F0B15 /* College Profile Builder */,
 				FC64F4521E4B846E007F0B15 /* Products */,
 			);
@@ -87,6 +89,7 @@
 				FC64F4561E4B846E007F0B15 /* MasterViewController.swift */,
 				FC64F4581E4B846E007F0B15 /* DetailViewController.swift */,
 				FC64F4681E4B85CD007F0B15 /* Colleges.swift */,
+				FC3938711E7070FE00B23C01 /* MapKitViewController.swift */,
 				FC64F45A1E4B846E007F0B15 /* Main.storyboard */,
 				FC64F45D1E4B846E007F0B15 /* Assets.xcassets */,
 				FC64F45F1E4B846E007F0B15 /* LaunchScreen.storyboard */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC64F4591E4B846E007F0B15 /* DetailViewController.swift in Sources */,
+				FC3938721E7070FE00B23C01 /* MapKitViewController.swift in Sources */,
 				FC64F4571E4B846E007F0B15 /* MasterViewController.swift in Sources */,
 				FC64F4551E4B846E007F0B15 /* AppDelegate.swift in Sources */,
 				FC64F4691E4B85CD007F0B15 /* Colleges.swift in Sources */,

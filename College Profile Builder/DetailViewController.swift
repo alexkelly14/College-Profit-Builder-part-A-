@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SafariServices
+
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -59,6 +60,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! MapKitViewController
+        if let college = self.detailItem {
+            dvc.college = college
+        }
+        
+    }
+
     @IBAction func onTappedGoButton(_ sender: UIButton) {
         let urlString = websiteTextField.text!
         let url = URL(string: urlString)
@@ -88,6 +97,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func onLibraryTappedButton(_ sender: UIButton) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func goButtonTappedMapKit(_ sender: UIButton) {
     }
 }
 
